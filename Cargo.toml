@@ -1,0 +1,23 @@
+[package]
+authors = ["Sebastian Dröge <sebastian@centricular.com>"]
+edition = "2018"
+readme = "README.md"
+name = "app"
+version = "0.1.0"
+license = "MIT"
+
+[dependencies]
+cortex-m = "0.6.0"
+cortex-m-rt = "0.6.10"
+panic-halt = "0.2.0"
+sam3x8e = { version = "0.1", features = ["rt"], git = "https://github.com/sdroege/sam3x8e.git" }
+
+[[bin]]
+name = "app"
+test = false
+bench = false
+
+[profile.release]
+codegen-units = 1
+debug = true
+lto = true
